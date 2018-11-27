@@ -13198,7 +13198,7 @@ function ChildReconciler(shouldTrackSideEffects) {
   }
 
   function updateElement(returnFiber, current$$1, element, expirationTime) {
-    if (current$$1 !== null && hotCompareElements(current$$1.elementType, element.type, updateChild(current$$1))) {
+    if (current$$1 !== null && (!current$$1.elementType || hotCompareElements(current$$1.elementType, element.type, updateChild(current$$1)))) {
       // Move based on index
       var existing = useFiber(current$$1, element.props, expirationTime);
       existing.ref = coerceRef(returnFiber, current$$1, element);
